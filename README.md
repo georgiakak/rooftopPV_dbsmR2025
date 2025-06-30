@@ -150,7 +150,12 @@ The author would like to thank the following colleagues for their support and gr
 - Panagiotis Politis  
 - Sergio Freire  
 - Katarzyna Krasnodębska  
-- Olympia Gounari  
+- Olympia Gounari
+For the rooftop PV analysis and conceptualization:
+-Nigel G. Taylor
+-Robert Kenny
+-Ana Gracia-Amillo
+-Arnulf Jaeger-Waldau
 
 ### License
 EUROPEAN UNION PUBLIC LICENCE v. 1.2
