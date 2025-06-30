@@ -56,7 +56,7 @@ Use the [**JRC Building Data Integrator**](https://code.europa.eu/jrc-ghsl/build
 
 📘 Full documentation available at:  
 [**EU DBSM Publication (JRC, 2024)**](https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en)
-[**PLUS HERE THE LINK OF THE PUBLISHED PAPER**]
+🔗**[PLUS HERE THE LINK OF THE PUBLISHED PAPER]**
 
 📝 Attribute field definitions are provided in the **Annex** of the publication:  
 🔗 **[LINK TO PAPER final version]**
@@ -66,6 +66,7 @@ Use the [**JRC Building Data Integrator**](https://code.europa.eu/jrc-ghsl/build
 The following figure illustrates the DBSM R2025 processing workflow:
 
 ![DBSM Workflow](workflow_dbsmr2025.png)
+
 ### Dataset 
 🔗 **[Insert LINK HERE to the dataset]
 ---
