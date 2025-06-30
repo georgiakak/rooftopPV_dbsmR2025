@@ -1,2 +1,10 @@
 # rooftopPV_dbsmR2025
 The EU Digital Building Stock Model (DBSM) is designed to provide a comprehensive and detailed geospatial database of individual buildings within the European Union, focusing primarily on their energy-related characteristics, although DBSM has a wide range of applications. The main goal of this initiative is to support key energy policies, such as the Energy Performance of Buildings Directive, by facilitating more targeted and informed investment decisions in the context of the building renovation wave. DBSM also aims to support the recent European Affordable Housing initiative, for example by enabling more precise "what-if" analyses and assessments of higher granularity. 
+
+
+The repositoty has 4 scripts (step0, step1, step2, step3) that the user can use and replicate the conflation of DBSM R2025 (step 0) and the estimation of the rooftop PV potential (step3). 
+Step1 is the postprocessing after the conflation and contains three main steps: 
+  1) the identification of duplicates and overapping buildings,
+  2) identification of large porisitve overlaid with water or forest parcels
+  3) identification of false positive and small buildingd <5m2 area.
+More detailed description can be found in https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en
