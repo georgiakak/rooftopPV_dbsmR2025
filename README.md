@@ -8,7 +8,7 @@ The repositoty has 4 scripts (step0, step1, step2, step3) that the user can use 
   a) the identification of duplicates and overapping buildings,
   b) identification of large porisitve overlaid with water or forest parcels
   c) identification of false positive and small buildingd <5m2 area.
-3) Step 2, inlcuds the assignment of the unique code id and final check for duplicates, cleaning and homoginize the attribute table, basic statics.
-4) Step 3, estiamtes the rooftop PV potential at building level and then exported as a .gpkg at country level.
+3) Step 2, inlcudes the assignment of the unique code id and final check for duplicates, cleaning and homoginize the attribute table, basic statics.
+4) Step 3, estimates the rooftop PV potential at building level and then exported as a .gpkg at country level.
 More detailed description can be found in https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en
 The detailed description of the attribute fields are presetned in the ANNEX of paper: LINK HERE.
