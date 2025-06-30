@@ -1,4 +1,4 @@
-# rooftopPV_dbsmR2025
+# rooftopPV dbsmR2025
 The EU Digital Building Stock Model (DBSM) is designed to provide a comprehensive and detailed geospatial database of individual buildings within the European Union, focusing primarily on their energy-related characteristics, although DBSM has a wide range of applications. The main goal of this initiative is to support key energy policies, such as the Energy Performance of Buildings Directive, by facilitating more targeted and informed investment decisions in the context of the building renovation wave. DBSM also aims to support the recent European Affordable Housing initiative, for example by enabling more precise "what-if" analyses and assessments of higher granularity. 
 
 
