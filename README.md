@@ -60,6 +60,11 @@ PLUS HERE THE LINK OF THE PUBLISHED PAPER
 📝 Attribute field definitions are provided in the **Annex** of the publication:  
 🔗 **[LINK TO PAPER final version]**
 
+## 🔧 Workflow Overview
+
+The following figure illustrates the DBSM R2025 processing workflow:
+
+![DBSM Workflow](images/dbsm_workflow.png)
 ### Dataset 
 🔗 **[Insert LINK HERE to the dataset]
 ---
