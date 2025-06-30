@@ -17,7 +17,7 @@ The detailed description of the attribute fields are presetned in the ANNEX of p
 
 
 Installation
-No installation is required. The script  (tested in Python 3.10). The following dependencies are required:
+   No installation is required. The script (tested in Python 3.10). The following dependencies are required:
 
 name: geo_env
 channels:
