@@ -149,7 +149,7 @@ The author would like to thank the following colleagues for their support and gr
 - Sergio Freire  
 - Katarzyna Krasnodębska  
 - Olympia Gounari
-For the rooftop PV analysis and conceptualization:
+\\For the rooftop PV analysis and conceptualization:
 -Nigel G. Taylor
 -Robert Kenny
 -Ana Gracia-Amillo
