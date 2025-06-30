@@ -1,10 +1,10 @@
 # 🏛️ EU Digital Building Stock Model (DBSM R2025)
 
-The **EU Digital Building Stock Model (DBSM)** provides a detailed and comprehensive and homogeneous **geospatial database of individual buildings** across the European Union. While primarily focused on **energy-related characteristics**, the model supports a broad range of applications.
+The **EU Digital Building Stock Model (DBSM)** provides a detailed and comprehensive and homogeneous **geospatial database of individual buildings** across the European Union. While primarily focused on **energy-related characteristics**, the model supports a broad range of applications.DBSM enables bottom-up solutions from individual building level to entire neighborhoods and national scales.
 
 This initiative aims to support major EU energy policies—such as the **Energy Performance of Buildings Directive (EPBD)**—by enabling **data-driven, targeted investment decisions** in line with the **EU Renovation Wave**. DBSM also supports the **European Affordable Housing Initiative** by enabling high-resolution "**what-if**" analyses and assessments.
 
-DBSM enables bottom-up solutions from the individual building level to entire neighbourhoods and national scales. By leveraging DBSM, public administrators, policymakers, researchers, and energy planners can effectively address key challenges in energy, infrastructure, and urban development.
+
 ---
 
 ## 📁 Repository Structure
@@ -106,6 +106,28 @@ Make sure the following Python packages are installed:
 
 
 ### Application
+The DBSM supports decision-making across a variety of sectors and use cases:
+
+🏘️ Affordable housing and energy policy support
+
+⚡ Energy efficiency assessments and building renovation strategies
+
+🏢 Energy consumption modeling at the building and neighborhood scale
+
+🔌 Grid optimization and smart city planning
+
+🌱 Sustainable development and resource management
+
+☀️ Assessment of PV and BIPV (Building-Integrated Photovoltaics) potential
+
+🌊 Disaster risk management, including flood and earthquake vulnerability
+
+🏙️ Urban planning and land-use management
+
+💰 Investment analysis and property valuation
+
+📈 Demographic modeling and infrastructure forecasting
+
 ![DBSM PV potential](PictureExampleMalta.png)
 
 ## Support
