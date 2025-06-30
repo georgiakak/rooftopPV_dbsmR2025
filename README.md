@@ -95,11 +95,11 @@ Make sure the following Python packages are installed:
   - geopandas=0.14.0
   - pyogrio=0.7.2
   - pyrosm
-  - tqdm
   - joblib
   - pycountry
-  - logging
-  - configparser
+  - tqdm
+  - logging (standard library)
+  - configparser (standard library)
   - os (standard library)
   - glob (standard library)
 
