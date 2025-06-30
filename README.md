@@ -4,7 +4,7 @@ The EU Digital Building Stock Model (DBSM) is designed to provide a comprehensiv
 
 The repositoty has 4 scripts (step0, step1, step2, step3) that the user can use and replicate the conflation of DBSM R2025 (step 0) and the estimation of the rooftop PV potential (step3). 
 1)  Step0 this is the core code of DBSM R2025. To run this the user needs as input the EUBUCCO, OpenSteetMap and Microsoft Buildings .gpkg or .fgb (vector format) per country. The code checks and validated the
-   geometries of each input dataset and reprojects if necessary to EPSG:3035
+   geometries of each input dataset and reprojects if necessary to EPSG:3035.
 3) Step1 is the postprocessing after the conflation and contains three main steps: 
   a) the identification of duplicates and overapping buildings,
   b) identification of large porisitve overlaid with water or forest parcels
