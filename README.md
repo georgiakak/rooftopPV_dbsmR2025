@@ -15,14 +15,14 @@ The repositoty has 4 scripts (step0, step1, step2, step3) that the user can use 
 More detailed description can be found in https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en
 The detailed description of the attribute fields are presetned in the ANNEX of paper: LINK HERE.
 
+## Installation
 
-**Installation**\\
-   No installation is required. The script (tested in Python 3.10). The following dependencies are required:
+No installation is required. The script is tested with **Python 3.10**.
 
-name: geo_env
-channels:
-  - conda-forge
-dependencies:
+### Dependencies
+
+Make sure the following Python packages are installed:
+
   - python=3.10.12
   - numpy=1.24.4
   - pandas=2.2.1
@@ -37,3 +37,11 @@ dependencies:
   - pycountry
   - logging
   - configparser
+  - os (standard library)
+  - glob (standard library)
+
+You can install the required dependencies using pip or conda
+
+```bash
+pip install pandas geopandas pycountry joblib shapely fiona
+
