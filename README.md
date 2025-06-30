@@ -45,3 +45,13 @@ You can install the required dependencies using pip or conda
 ```bash
 pip install pandas geopandas pycountry joblib shapely fiona
 
+### Application
+### Support
+For any questions contact Georgia Kakoulalaki (georgia.kakoulaki@gmail.com), Ana Martinez (ana.martinez@ec.europa.eu)
+### Authors and Acknowledgment
+Georgia Kakoulaki, European Commission, Joint Research Centre
+The author would like to thank: Pietro Florio, Panagiotis Politis, Sergio Freire, Katarzyna Krasnodębska, Johannes H. Uhl, Olympia Gounari, Ana M. Martinez
+for their support and grat collaboration during the development of the DBSM R2025.
+### License
+EUROPEAN UNION PUBLIC LICENCE v. 1.2
+EUPL © the European Union 2007, 2016
