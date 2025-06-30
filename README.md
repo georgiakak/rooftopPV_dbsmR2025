@@ -40,10 +40,6 @@ Make sure the following Python packages are installed:
   - os (standard library)
   - glob (standard library)
 
-You can install the required dependencies using pip or conda
-
-```bash
-pip install pandas geopandas pycountry joblib shapely fiona
 
 ### Application
 ### Support
