@@ -42,8 +42,12 @@ Make sure the following Python packages are installed:
 
 
 ### Application
-### Support
-For any questions contact Georgia Kakoulalaki (georgia.kakoulaki@gmail.com), Ana Martinez (ana.martinez@ec.europa.eu)
+## Support
+
+For any questions or support, please contact:
+- Georgia Kakoulaki — [georgia.kakoulaki@gmail.com](mailto:georgia.kakoulaki@gmail.com)  
+- Ana M. Martinez — [ana.martinez@ec.europa.eu](mailto:ana.martinez@ec.europa.eu)
+  
 ## Authors and Acknowledgment
 
 **Author**  
