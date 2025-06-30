@@ -68,7 +68,8 @@ The following figure illustrates the DBSM R2025 processing workflow:
 ### Dataset 
 🔗 **[Insert LINK HERE to the dataset]
 ---
-
+## Visual example DBSM R2025 attributes
+![DBSM General Atrributes]Attributes_DBSMR2025_visualExample.png
 ## 📦 Installation
 
 No installation is required. The scripts are tested with **Python 3.10+**.
