@@ -102,6 +102,8 @@ Make sure the following Python packages are installed:
 
 
 ### Application
+![DBSM PV potential](PictureExampleMalta.png)
+
 ## Support
 
 For any questions or support, please contact:
