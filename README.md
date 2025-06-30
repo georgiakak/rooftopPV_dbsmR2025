@@ -33,3 +33,7 @@ dependencies:
   - folium
   - matplotlib
   - tqdm
+  - joblib
+  - pycountry
+  - logging
+  - configparser
