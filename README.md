@@ -56,14 +56,13 @@ European Commission, Joint Research Centre (JRC)
 
 **Acknowledgments**  
 The author would like to thank the following colleagues for their support and great collaboration during the development of the **DBSM R2025**:
-
+- Ana M. Martinez
 - Pietro Florio  
 - Panagiotis Politis  
 - Sergio Freire  
 - Katarzyna Krasnodębska  
-- Johannes H. Uhl  
 - Olympia Gounari  
-- Ana M. Martinez
+
 ### License
 EUROPEAN UNION PUBLIC LICENCE v. 1.2
 EUPL © the European Union 2007, 2016
