@@ -1,19 +1,79 @@
-# rooftopPV dbsmR2025
-The EU Digital Building Stock Model (DBSM) is designed to provide a comprehensive and detailed geospatial database of individual buildings within the European Union, focusing primarily on their energy-related characteristics, although DBSM has a wide range of applications. The main goal of this initiative is to support key energy policies, such as the Energy Performance of Buildings Directive, by facilitating more targeted and informed investment decisions in the context of the building renovation wave. DBSM also aims to support the recent European Affordable Housing initiative, for example by enabling more precise "what-if" analyses and assessments of higher granularity. 
+# 🏛️ EU Digital Building Stock Model (DBSM R2025)
 
+The **EU Digital Building Stock Model (DBSM)** provides a detailed and comprehensive **geospatial database of individual buildings** across the European Union. While primarily focused on **energy-related characteristics**, the model supports a broad range of applications.
 
-The repositoty has 4 scripts (step0, step1, step2, step3) that the user can use and replicate the conflation of DBSM R2025 (step 0) and the estimation of the rooftop PV potential (step3). 
-1)  Step0 this is the core code of DBSM R2025. To run this the user needs as input the EUBUCCO, OpenSteetMap and Microsoft Buildings .gpkg or .fgb (vector format) per country. The code checks and validated the
-   geometries of each input dataset and reprojects if necessary to EPSG:3035.
-3) Step1 is the postprocessing after the conflation and contains three main steps: 
-  a) the identification of duplicates and overapping buildings,
-  b) identification of large porisitve overlaid with water or forest parcels
-  c) identification of false positive and small buildingd <5m2 area.
-4) Step 2, inlcudes the assignment of the unique code id and final check for duplicates, cleaning and homoginize the attribute table, basic statics.
-5) Here the user should run the code https://code.europa.eu/jrc-ghsl/building-data-integrator to get the atributes: height, use, shapefactor, building construction epoch
-6) Step 3, estimates the rooftop PV potential at building level and then exported as a .gpkg at country level.
-More detailed description can be found in https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en
-The detailed description of the attribute fields are presetned in the ANNEX of paper: LINK HERE.
+This initiative aims to support major EU energy policies—such as the **Energy Performance of Buildings Directive (EPBD)**—by enabling **data-driven, targeted investment decisions** in line with the **EU Renovation Wave**. DBSM also supports the **European Affordable Housing Initiative** by enabling high-resolution "**what-if**" analyses and assessments.
+
+---
+
+## 📁 Repository Structure
+
+This repository contains four scripts that replicate the **conflation** process of **DBSM R2025** and estimate the **rooftop PV potential** at building level:
+
+### 🔹 `step0`: Conflation Core (DBSM R2025)
+This is the core script of the DBSM pipeline.
+
+**Inputs required (per country):**
+- [`EUBUCCO`](https://eubucco.com)
+- [`OpenStreetMap`](https://www.openstreetmap.org)
+- [`Microsoft Building Footprints`](https://github.com/microsoft/GlobalMLBuildingFootprints)
+
+**Main tasks:**
+- Validates and repairs input geometries
+- Reprojects all layers to **EPSG:3035**
+- Merges building datasets into a harmonized layer
+
+---
+
+### 🔹 `step1`: Postprocessing
+Cleans and filters the merged building layer:
+- Detects and removes **duplicate and overlapping buildings**
+- Removes **false positives** and buildings <5 m²
+- Flags buildings overlapping **water or forest parcels**
+
+---
+
+### 🔹 `step2`: Attribute Assignment & Cleanup
+Prepares the building layer for analysis:
+- Assigns a **unique building ID**
+- Removes duplicate geometries
+- Harmonizes the attribute table
+- Computes basic descriptive statistics
+
+🔗 External processing required:
+Use the [**JRC Building Data Integrator**](https://code.europa.eu/jrc-ghsl/building-data-integrator) to enrich buildings with:
+- Height  
+- Use  
+- Shape factor  
+- Construction epoch
+
+---
+
+### 🔹 `step3`: Rooftop PV Potential Estimation
+- Estimates **rooftop PV potential** at the **building level**
+- Outputs country-level results as `.gpkg`
+
+📘 Full documentation available at:  
+[**EU PV Potential Publication (JRC, 2024)**](https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en)
+
+📝 Attribute field definitions are provided in the **Annex** of the publication:  
+🔗 **[LINK TO PAPER final version]**
+
+###Dataset 
+🔗 **[Insert LINK HERE to the dataset]
+---
+
+## 📦 Installation
+
+No installation is required. The scripts are tested with **Python 3.10+**.
+
+### ✅ Required Dependencies
+
+You can install the required packages using pip:
+
+```bash
+pip install pandas geopandas pycountry joblib shapely fiona
+
 
 ## Installation
 
