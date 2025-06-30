@@ -54,16 +54,16 @@ config = configparser.ConfigParser()
 config.read("config.ini")  # Load paths from a config file
 
 # Paths (replace hardcoded paths with config options or environment variables)
-EUB_FOLDER = os.getenv("EUB_FOLDER", "/path/to/eub/")
-OSM_FOLDER = os.getenv("OSM_FOLDER", "/path/to/osm/")
-MSB_FOLDER = os.getenv("MSB_FOLDER", "/path/to/msb/")
+EUB_FOLDER = os.getenv("EUB_FOLDER", "/path/to/eub/") # eubucco dataset per country .gpkg
+OSM_FOLDER = os.getenv("OSM_FOLDER", "/path/to/osm/") # OpenStreetMap dataset per country .fgb (or .gpkg or any vector format)
+MSB_FOLDER = os.getenv("MSB_FOLDER", "/path/to/msb/") # Microsoft Buildings dataset per country .gpkg
 NUTS_GPKG = os.getenv("NUTS_GPKG", "/path/to/nuts.gpkg")
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", "/path/to/output/")
-PER_TILE_OUTPUT = os.getenv("PER_TILE_OUTPUT", "/path/to/tile/output/")
+PER_TILE_OUTPUT = os.getenv("PER_TILE_OUTPUT", "/path/to/tile/output/") #Each country is split in tiles using the GISCO grid
 
 # Country Groups
 COUNTRIES_EUB_OSM = ['austria', 'germany', 'italy', 'czechia', 'austria', 'belgium']
-COUNTRIES_ONLY_OSM = ['bulgaria', 'greece', 'hungary', 'croatia', 'ireland', 'latvia', 'portugal', 'sweden', 'romania']
+COUNTRIES_ONLY_OSM = ['bulgaria', 'greece', 'hungary', 'croatia', 'ireland', 'latvia', 'portugal', 'sweden', 'romania','malta']
 
 # DBSM Version
 VERSION_DBSM = "dbsm-v2"
@@ -275,7 +275,7 @@ def areacomparisonoverlap(overlay_eubosm, eub_overlaid, percentage_overlap):
     intersection_result = sjoin_result[ (sjoin_result['ratio_osm'] >= percentage_overlap) | (sjoin_result['ratio_eub'] >= percentage_overlap)]
     non_intersection = sjoin_result[(sjoin_result['ratio_osm'] < percentage_overlap) & (sjoin_result['ratio_eub'] < percentage_overlap)]
 
-    filtered_result=intersection_result.groupby('eub_index').apply(select_largest_overlap).reset_index(drop=True)
+    filtered_result = intersection_result.groupby('eub_index').apply(select_largest_overlap).reset_index(drop=True)
    
     eub_with_OSMtags = gdf2.merge(filtered_result, how='inner', left_index=True, right_on='eub_index', indicator=True)
     eub_with_OSMtags.drop('geometry', axis=1, inplace=True) #drop osm geometry
@@ -368,7 +368,7 @@ def identify_nonexisting(gfd_tobechecked, gfd_base, buffer_distance=0.001):
         overlap_items_base = gfd_base[gfd_base.base_saveindex.isin(overlapping_indices_base)].copy()
        
 
-        non_overlap_base = gfd_base[~gfd_base.base_saveindex.isin(overlapping_indices_base)].copy()  # eub items that do not overlay with osm
+        non_overlap_base = gfd_base[~gfd_base.base_saveindex.isin(overlapping_indices_base)].copy()  #eub items that do not overlay with osm
         non_overlap_base.drop_duplicates(subset='geometry', keep='first', inplace=True)
       
     else:
@@ -447,9 +447,9 @@ def eub_osm_join(eub_tile, osm_tile):
         eub_to_save = eub_tile
         # ROUND NUMBER TO TWO DECIMAL DIGITS
         eub_to_save['eub-height'] = round(eub_to_save['height'], 2).astype('float64')  # in cristiano's code name: tile '-a04aa-eub-height2dec.gpkg' and  '-a04a-eub-height.gpkg'
-        # ROUND NUMBER TO TWO DECIMAL DIGITS
-        eub_to_save['eub-age'] = round(eub_to_save['age'], 2).astype('float64')  # in cristiano's code name: tile '-a04b-eub-age.gpkg'
-        eub_to_save['eub-type'] = (eub_to_save['type']).astype('string')  #
+
+        eub_to_save['eub-age'] = round(eub_to_save['age'], 2).astype('float64')  
+        eub_to_save['eub-type'] = (eub_to_save['type']).astype('string') 
         # DROPS SEVERAL COLUMNS
         eub_to_save.drop(columns=['id', 'height', 'age', 'type', 'id_source', 'type_source', 'validity'], axis=1, errors='ignore', inplace=True)
         logger.info('Applied Modification to EUBUCCO dataset')
@@ -461,25 +461,24 @@ def eub_osm_join(eub_tile, osm_tile):
         non_overlay_eubosm, overlay_eubosm, eub_overlaid, eub_not_overlaid = identify_nonexisting(osm_tile, eub_to_save,buffer_distance=0.001)  # non_overlay_eubosm=gives you the osm not overlaid with eub
     
 
-        # ############ area comparison eub osm
+        ############# area comparison eub osm ##########################
         if not non_overlay_eubosm.empty:
             eub_with_OSMtags, eub_withno_OSMtags = areacomparisonoverlap(overlay_eubosm, eub_overlaid, 50)  # EUB/OSM using overlay area between osm_ratio and eub_ratio
-            # ###################### merge all the  eub dataset with tags or no tags
-            eub_with_or_no_OSMtags=gpd.GeoDataFrame(pd.concat([eub_not_overlaid, eub_with_OSMtags, eub_withno_OSMtags]))#.drop_duplicates())
+            #merge all the  eub dataset with tags or no tags
+            eub_with_or_no_OSMtags=gpd.GeoDataFrame(pd.concat([eub_not_overlaid, eub_with_OSMtags, eub_withno_OSMtags]))
             eub_with_or_no_OSMtags.drop_duplicates(subset='geometry',keep='first',inplace=True)
             eub_with_or_no_OSMtags['fid'] = range(len(eub_with_or_no_OSMtags))
             eub_with_or_no_OSMtags.drop(columns=['temp_index', 'saveindex','eub_index'],axis=1, errors='ignore', inplace=True)
-            #merge al the eub data and the OSM that didnt overlap with eub
-
+           
+	    #merge all the eub data and the OSM that didnt overlap with eub
             merge_eubosm = gpd.GeoDataFrame(pd.concat([eub_with_or_no_OSMtags, non_overlay_eubosm]))#.drop_duplicates())
             merge_eubosm.drop_duplicates(subset='geometry', keep='first', inplace=True)
             merge_eubosm['fid'] = range(len(merge_eubosm))
-           # merge_eubosm.to_file(r'/scratch/kakouge/test_duplicates_malta/merged_non_osm_all_eub.gpkg', driver='GPKG')
 
             merge_eubosm.drop(columns=['validity','base_saveindex','eub_index','temp_index', 'saveindex'], axis=1, errors='ignore', inplace=True)
 
             osm_clean_tile = non_overlay_eubosm # OSM only, not existing and
-            osm_clean_tile.drop(columns=[ 'temp_index','saveindex' 'validity'], axis=1, errors='ignore', inplace=True)
+            osm_clean_tile.drop(columns=['temp_index','saveindex' 'validity'], axis=1, errors='ignore', inplace=True)
 
             eub_clean_tile = eub_with_or_no_OSMtags.copy()
             logger.info('more than 1 building overlaping')
@@ -492,22 +491,18 @@ def eub_osm_join(eub_tile, osm_tile):
             osm_clean_tile['source'] = 'osm'
             osm_clean_tile.drop_duplicates(subset='geometry', keep='first', inplace=True)
             eub_clean_tile = eub_to_save
-            # osm_dummy.append(osm_clean_tile)
-            # eub_dummy.append(eub_clean_tile)
             logger.info('no overlap OSM - EUB')
     else:
         osm_clean_tile = osm_tile
         osm_clean_tile['source'] = 'osm'
-        #if not osm_clean_tile.empty:
         osm_clean_tile.drop_duplicates(subset='geometry', keep='first', inplace=True)
         merge_eubosm = pd.concat([eub_to_save, osm_clean_tile])
         eub_clean_tile = eub_to_save
         logger.info('OSM only, no overlap OSM - EUB')
-
     return osm_clean_tile, eub_clean_tile, merge_eubosm
 
 
-def save_each_tile(tile_to_read, eub_data_save, osm_data_save, msb_data_save, output_gpkg_path, gpkg_all_tiles_name):
+def save_each_tile(tile_to_read, eub_data_save, osm_data_save, msb_data_save, output_gpkg_path, gpkg_all_tiles_name, VERSION_DBSM):
     """Save each tile and each source to a GeoPackage
     Args:
         tile (_type_): _description_
@@ -519,9 +514,9 @@ def save_each_tile(tile_to_read, eub_data_save, osm_data_save, msb_data_save, ou
     """
     tile_base_name = os.path.splitext(os.path.basename(tile_to_read))[0]
     # Define layer names based on the tile and source
-    eub_layer_name = f"dbsm_v3_{tile_base_name}_eub"
-    osm_layer_name = f"dbsm_v3_{tile_base_name}_osm"
-    msb_layer_name = f"dbsm_v3_{tile_base_name}_msb"
+    eub_layer_name = f"{VERSION_DBSM}_{tile_base_name}_eub"
+    osm_layer_name = f"{VERSION_DBSM}_{tile_base_name}_osm"
+    msb_layer_name = f"{VERSION_DBSM}_{tile_base_name}_msb"
 
     full_output_path = os.path.join(output_gpkg_path, gpkg_all_tiles_name)
     # Function to save a layer if it's not empty and has a valid geometry column
@@ -942,14 +937,9 @@ if __name__ == "__main__":
     for country_name in country_names:
 
         files_tiles = os.listdir(os.path.join(tiles_country_path, country_name))
-
-       
         gpkg_all_tiles_name = f"dbsm-v2-{country_name}-tiles-no-shifting_{today_day}.gpkg"
         empty_df_stats = create_df_stat(files_tiles)  ### create a df for the stats
-
         results = joblib_loop(files_tiles, country_name)
-     
-
         print(country_name)
 
         eub_dummy = []
@@ -960,15 +950,11 @@ if __name__ == "__main__":
         for result in results:
             print(result[7])
             merged_output = write_results(result, country_name, today_day, all_dummy)
-
-
         merge_all = pd.concat(merged_output)
         merge_all.drop(columns=['osm_index', 'area_joined', 'ratio_osm','eub-area','osm-area'], axis=1, errors='ignore', inplace=True)
         merge_all['geometry'] = merge_all.normalize()
         merge_all.drop_duplicates(subset='geometry', inplace=True)
         merge_all['fid'] = range(len(merge_all))
-
-     
         geopackage_filename = f'{version_dbsm}-{country_name.casefold()}-{today_day}-R2025.gpkg'
         merge_all.to_file(os.path.join(output_dir, geopackage_filename), driver='GPKG')
         logger.info(f'saved merged gpkg for country {country_name.upper()}')
