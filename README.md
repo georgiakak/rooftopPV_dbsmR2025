@@ -64,7 +64,7 @@ PLUS HERE THE LINK OF THE PUBLISHED PAPER
 
 The following figure illustrates the DBSM R2025 processing workflow:
 
-![DBSM Workflow](images/dbsm_workflow.png)
+![DBSM Workflow](workflow_dbsmr2025.png)
 ### Dataset 
 🔗 **[Insert LINK HERE to the dataset]
 ---
