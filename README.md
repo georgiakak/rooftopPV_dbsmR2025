@@ -44,10 +44,22 @@ Make sure the following Python packages are installed:
 ### Application
 ### Support
 For any questions contact Georgia Kakoulalaki (georgia.kakoulaki@gmail.com), Ana Martinez (ana.martinez@ec.europa.eu)
-### Authors and Acknowledgment
-Georgia Kakoulaki, European Commission, Joint Research Centre
-The author would like to thank: Pietro Florio, Panagiotis Politis, Sergio Freire, Katarzyna Krasnodębska, Johannes H. Uhl, Olympia Gounari, Ana M. Martinez
-for their support and grat collaboration during the development of the DBSM R2025.
+## Authors and Acknowledgment
+
+**Author**  
+[![ORCID iD](https://img.shields.io/badge/ORCID-0000--0001--5365--0478-a6ce39?style=flat-square&logo=orcid&logoColor=white)](https://orcid.org/0000-0001-5365-0478) Georgia Kakoulaki    
+European Commission, Joint Research Centre (JRC)
+
+**Acknowledgments**  
+The author would like to thank the following colleagues for their support and great collaboration during the development of the **DBSM R2025**:
+
+- Pietro Florio  
+- Panagiotis Politis  
+- Sergio Freire  
+- Katarzyna Krasnodębska  
+- Johannes H. Uhl  
+- Olympia Gounari  
+- Ana M. Martinez
 ### License
 EUROPEAN UNION PUBLIC LICENCE v. 1.2
 EUPL © the European Union 2007, 2016
