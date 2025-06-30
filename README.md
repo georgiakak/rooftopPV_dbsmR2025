@@ -59,7 +59,7 @@ Use the [**JRC Building Data Integrator**](https://code.europa.eu/jrc-ghsl/build
 📝 Attribute field definitions are provided in the **Annex** of the publication:  
 🔗 **[LINK TO PAPER final version]**
 
-###Dataset 
+### Dataset 
 🔗 **[Insert LINK HERE to the dataset]
 ---
 
@@ -68,12 +68,6 @@ Use the [**JRC Building Data Integrator**](https://code.europa.eu/jrc-ghsl/build
 No installation is required. The scripts are tested with **Python 3.10+**.
 
 ### ✅ Required Dependencies
-
-You can install the required packages using pip:
-
-```bash
-pip install pandas geopandas pycountry joblib shapely fiona
-
 
 ## Installation
 
