@@ -55,8 +55,8 @@ Use the [**JRC Building Data Integrator**](https://code.europa.eu/jrc-ghsl/build
 - Outputs country-level results as `.gpkg`
 
 📘 Full documentation available at:  
-[**EU PV Potential Publication (JRC, 2024)**](https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en)
-PLUS HERE THE LINK OF THE PUBLISHED PAPER
+[**EU DBSM Publication (JRC, 2024)**](https://op.europa.eu/en/publication-detail/-/publication/d418ba32-473e-11f0-85ba-01aa75ed71a1/language-en)
+[**PLUS HERE THE LINK OF THE PUBLISHED PAPER**]
 
 📝 Attribute field definitions are provided in the **Annex** of the publication:  
 🔗 **[LINK TO PAPER final version]**
