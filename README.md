@@ -70,7 +70,7 @@ The following figure illustrates the DBSM R2025 processing workflow:
 ---
 
 ## Visual example DBSM R2025 attributes
-![DBSM General Atrributes](Attributes_DBSMR2025_visualExample.png)
+![DBSM General Atrributes](attributes_fig.png)
 
 ## 📦 Installation
 
